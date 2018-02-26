@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="jumbotron">
+        <h1>Super Cities</h1>
+        <h3>A Continuous Query Notification Demo</h3>
+        <p>This is a proof of concept that demonstrates how Socket.io and Node.js can be combined with the Continuous Query
+            Notification feature of Oracle Database to push changes to data from the database to the client in real time.
+            Open the application in multiple browsers and watch as votes made in one browser are immediately reflected in
+            the other.</p>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Votes</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="{{city.ID}}" *ngFor="let city of cities">
+                <td>{{city.NAME}}</td>
+                <td>{{city.VOTES}}</td>
+                <td>
+                    <a class="btn btn-default" role="button" (click)="postVote(city.ID)">
+                        <span class="glyphicon glyphicon-arrow-up"></span> Upvote!
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
