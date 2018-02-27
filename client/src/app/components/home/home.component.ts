@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
         this.ioConnection = this.socketService.onChange()
             .subscribe((data) => {
                 //this.cities = data; //COMENTAR O DESCOMENTAR ESTO
-                this.cities[9].VOTES+=1; //COMENTAR O DESCOMENTAR ESTO
+                this.cities[9].VOTES += 1; //COMENTAR O DESCOMENTAR ESTO
 
                 let chart_labels = [];
                 let chart_data = [];
@@ -67,56 +67,22 @@ export class HomeComponent implements OnInit {
                     },
                     options: {
                         legend: {
-                          display: true,
-                          position: 'right'
+                            display: true,
+                            position: 'right'
                         },
                         scales: {
-                          xAxes: [{
-                            display: false
-                          }],
-                          yAxes: [{
-                            display: true
-                          }],
+                            xAxes: [{
+                                display: false
+                            }],
+                            yAxes: [{
+                                display: true
+                            }],
                         }
-                      }
+                    }
                 });
-                //console.log("labels: ", chart_labels)
+
             })
     }
-    /*
-    this.chart = new Chart('canvas', {
-        type: 'bar',
-        data: {
-          labels: weatherDates,
-          datasets: [
-            { 
-              data: temp_max,
-              borderColor: "#3cba9f",
-              fill: false
-            },
-            { 
-              data: temp_min,
-              borderColor: "#ffcc00",
-              fill: false
-            },
-          ]
-        },
-        options: {
-          legend: {
-            display: false
-          },
-          scales: {
-            xAxes: [{
-              display: true
-            }],
-            yAxes: [{
-              display: true
-            }],
-          }
-        }
-      });
-});*/
-
 
     postVote(city_id) {
         this.socketService.putVote(city_id)
