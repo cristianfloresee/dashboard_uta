@@ -28,6 +28,16 @@
         </tbody>
     </table>  
 </div>
-<div *ngIf="chart">
-    <canvas id="canvas">{{chart}}</canvas>
+<div *ngIf="ready" style="text-align: center; width: 100%; height: 400px">
+    
+    <div style="display: block" style="margin: auto; width: 80%;">
+        <canvas baseChart #baseChart="base-chart"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [colors]="lineChartColors"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+        </canvas>
+      </div>
 </div>
